@@ -23,7 +23,7 @@ int inputnumbers(string whattowrite) //дык это просто циферки
     return number;
 }
 
-//задача 19
+//для задачи 19
 //принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 
 bool isPalindrome(int checknum)
@@ -42,20 +42,36 @@ bool isPalindrome(int checknum)
 
 // задача 21 принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 // формула d=sqrt((xb-xa)^2+(yb-ya)^2+(zb-za)^2);
+// самая сложная функция века
 
 double calc3Ddistance(int[,] coords)
 {
     return Math.Sqrt(Math.Pow((coords[0, 1] - coords[0, 0]), 2) + Math.Pow(coords[1, 1] - coords[1, 0], 2) + Math.Pow(coords[2, 1] - coords[2, 0], 2));
 }
 
+//для задачи 23
 //принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-void writecubes(int number)
+void writecubes(int number) 
 {
     Console.Write($"Кубы чисел от 1 до {number}: ");
-    for (int i=1; i<=number; i++)
+    for (int i = 1; i <= number; i++)
     {
-        Console.Write(Math.Pow(i,3)+" | ");
+        Console.Write(Math.Pow(i, 3) + " | ");
     }
+}
+
+void maxnumber(int number) //выводим максимальную цифру для заданного числа
+{
+//    Console.Write(number);
+    int nummax = 0;
+    int numrest = 0;
+    while (number > 10)
+    {
+        numrest = number % 10;
+        if (nummax < numrest) nummax = numrest;
+        number = number / 10;
+    }
+    Console.WriteLine($"Максимальная цифра = {nummax}");
 }
 
 bool wanttocontinue = true;
@@ -69,7 +85,7 @@ while (wanttocontinue)
                     Задача4: на вход принимает радиус круга и находит его площадь округленную до целого числа, необходимо вывести максимальную цифру в полученном округлённом значении площади круга.");
     int numofwork = inputnumbers("Выберите номер задачи (1 2 3 4): ");
 
-    switch (numofwork)
+    switch (numofwork) //разбор по задачам
     {
         case 1:
             int number5 = inputnumbers("Введите пятизначное число: ");
@@ -91,9 +107,9 @@ while (wanttocontinue)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    if (i== 0) coords[i, j] = inputnumbers("Введите координату x" + (j + 1) + ": ");     //экономия такая себе
-                    else if (i==1) coords[i, j] = inputnumbers("Введите координату y" + (j + 1) + ": "); //matrix has you
-                    else coords[i, j] = inputnumbers("Введите координату z" + (j + 1) + ": ");           
+                    if (i == 0) coords[i, j] = inputnumbers("Введите координату x" + (j + 1) + ": ");     //экономия такая себе
+                    else if (i == 1) coords[i, j] = inputnumbers("Введите координату y" + (j + 1) + ": "); //matrix has you
+                    else coords[i, j] = inputnumbers("Введите координату z" + (j + 1) + ": ");
                 }
             }
             Console.WriteLine("Расстояние между двумя точками в 3D пространстве = " + Math.Round(calc3Ddistance(coords), 3));
@@ -102,6 +118,8 @@ while (wanttocontinue)
             writecubes(inputnumbers("Введите число N: "));
             break;
         case 4:
+            int radius = inputnumbers("Введите радиус круга: ");
+            maxnumber(Convert.ToInt32(Math.Round((Math.Pow(radius, 2) * Math.PI))));
             break;
         default:
             Console.WriteLine("Такую задачу ещё не решали. Выбирайте цифру с умом.");
@@ -109,7 +127,7 @@ while (wanttocontinue)
     }
     Console.Write("Хотите решить ещё задачу? (y/n)}");
     Console.WriteLine();
-    switch (Console.ReadKey(true).Key.ToString().ToLower()) // читаем кнопочку
+    switch (Console.ReadKey(true).KeyChar.ToString().ToLower()) 
     {
         case "y":
             wanttocontinue = true;
