@@ -1,5 +1,4 @@
-﻿
-//задачи для домашки 3семинара, все в одном
+﻿//задачи для домашки 3семинара, все в одном
 Console.Clear();
 int inputnumbers(string whattowrite) //дык это просто циферки вводить, целые. в аргументах - что подписать в запросе
 {
@@ -62,7 +61,6 @@ void writecubes(int number)
 
 void maxnumber(int number) //выводим максимальную цифру для заданного числа
 {
-    //    Console.Write(number);
     int nummax = 0;
     int numrest = 0;
     while (number > 10)
@@ -75,7 +73,7 @@ void maxnumber(int number) //выводим максимальную цифру 
 }
 
 // для задачи 5 - названия городов, где больше всего вхождений введенного символа
-void printcity(string[] arraycity, char findchar)    //есть у меня подозрение, что где-то тут можно сократить, оно оправдано?
+void printcity(string[] arraycity, char findchar)    //есть у меня подозрение, что где-то в функции можно сократить, оно оправдано?
 {
     int[] occurence = new int[arraycity.Length];
     int j = 0;
