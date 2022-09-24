@@ -1,4 +1,5 @@
-﻿//задачи для домашки 3семинара, все в одном
+﻿
+//задачи для домашки 3семинара, все в одном
 Console.Clear();
 int inputnumbers(string whattowrite) //дык это просто циферки вводить, целые. в аргументах - что подписать в запросе
 {
@@ -47,6 +48,16 @@ double calc3Ddistance(int[,] coords)
     return Math.Sqrt(Math.Pow((coords[0, 1] - coords[0, 0]), 2) + Math.Pow(coords[1, 1] - coords[1, 0], 2) + Math.Pow(coords[2, 1] - coords[2, 0], 2));
 }
 
+//принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+void writecubes(int number)
+{
+    Console.Write($"Кубы чисел от 1 до {number}: ");
+    for (int i=1; i<=number; i++)
+    {
+        Console.Write(Math.Pow(i,3)+" | ");
+    }
+}
+
 bool wanttocontinue = true;
 while (wanttocontinue)
 {
@@ -88,6 +99,7 @@ while (wanttocontinue)
             Console.WriteLine("Расстояние между двумя точками в 3D пространстве = " + Math.Round(calc3Ddistance(coords), 3));
             break;
         case 3:
+            writecubes(inputnumbers("Введите число N: "));
             break;
         case 4:
             break;
