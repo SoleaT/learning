@@ -1,17 +1,38 @@
-﻿// Рассчитать значение y при заданном x по формуле
+﻿
 
-Console.Clear();
 
-double dofunction(double x)
-{
-    if (x > 0)
-        return Math.Round(Math.Pow(Math.Sin(x), 2), 2);
-    else
-        return Math.Round(1 - 2 * Math.Sin(Math.Pow(x, 2)), 2);
-}
 
-Console.Write("Введите х: ");
-Console.WriteLine("Значение у = " + dofunction(Convert.ToDouble(Console.ReadLine())));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Рассчитать значение y при заданном x по формуле
+
+// Console.Clear();
+
+// double dofunction(double x)
+// {
+//     if (x > 0)
+//         return Math.Round(Math.Pow(Math.Sin(x), 2), 2);
+//     else
+//         return Math.Round(1 - 2 * Math.Sin(Math.Pow(x, 2)), 2);
+// }
+
+// Console.Write("Введите х: ");
+// Console.WriteLine("Значение у = " + dofunction(Convert.ToDouble(Console.ReadLine())));
 
 
 

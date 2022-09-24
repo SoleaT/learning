@@ -51,7 +51,7 @@ double calc3Ddistance(int[,] coords)
 
 //для задачи 23
 //принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-void writecubes(int number) 
+void writecubes(int number)
 {
     Console.Write($"Кубы чисел от 1 до {number}: ");
     for (int i = 1; i <= number; i++)
@@ -62,7 +62,7 @@ void writecubes(int number)
 
 void maxnumber(int number) //выводим максимальную цифру для заданного числа
 {
-//    Console.Write(number);
+    //    Console.Write(number);
     int nummax = 0;
     int numrest = 0;
     while (number > 10)
@@ -74,22 +74,55 @@ void maxnumber(int number) //выводим максимальную цифру 
     Console.WriteLine($"Максимальная цифра = {nummax}");
 }
 
+// для задачи 5 - названия городов, где больше всего вхождений введенного символа
+void printcity(string[] arraycity, char findchar)    //есть у меня подозрение, что где-то тут можно сократить, оно оправдано?
+{
+    int[] occurence = new int[arraycity.Length];
+    int j = 0;
+    if (findchar == '0')
+    {
+        findchar = 'а';
+        Console.WriteLine("Была введена пустая строка, так что назначим букву а");
+    }
+    foreach (string city in arraycity)
+    {
+        int numofchar = 0;
+        for (int i = 0; i < city.Length; i++)
+        {
+            if (city[i] == findchar) numofchar++;
+        }
+        occurence[j] = numofchar;
+        j++;
+    }
+//  Console.WriteLine("ЧИсла вхождений " + string.Join(" ", occurence));
+    int maxnumofchar = occurence.Max();     
+    Console.Write($"Города, где больше всего букв {findchar}({maxnumofchar}): ");
+    for (int k = 0; k < occurence.Length; k++)
+        if (occurence[k] == maxnumofchar) Console.Write($"{arraycity[k]} ");
+    Console.WriteLine();
+}
+
+//-________________________________________________________________________________________- это такая широкая улыбка
+
 bool wanttocontinue = true;
 while (wanttocontinue)
 {
     //какую задачу хотим решить
-    Console.WriteLine(@"Есть 4 задачи на выбор.
+    Console.WriteLine(@"Есть 5 задач на выбор.
                     Задача1: принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
                     Задача2: принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
                     Задача3: принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-                    Задача4: на вход принимает радиус круга и находит его площадь округленную до целого числа, необходимо вывести максимальную цифру в полученном округлённом значении площади круга.");
-    int numofwork = inputnumbers("Выберите номер задачи (1 2 3 4): ");
+                    Задача4: на вход принимает радиус круга и находит его площадь округленную до целого числа, 
+                             необходимо вывести максимальную цифру в полученном округлённом значении площади круга.
+                    Задача5: на вход принимает букву, необходимо создать массив из 5 названий городов, и вывести на экран те (тот), 
+                             где чаще всего встречается введённая буква.");
+    int numofwork = inputnumbers("Выберите номер задачи (1 2 3 4 5): ");
 
     switch (numofwork) //разбор по задачам
     {
         case 1:
             int number5 = inputnumbers("Введите пятизначное число: ");
-            if (number5.ToString().Length == 5)
+            if (number5 > 9999 && number5 < 100000)  //есть подозрение, что это тоже какой-то костыль и можно сделать нормально
             {
                 if (isPalindrome(number5))
                     Console.WriteLine($"Число {number5} является палиндромом.");
@@ -121,13 +154,19 @@ while (wanttocontinue)
             int radius = inputnumbers("Введите радиус круга: ");
             maxnumber(Convert.ToInt32(Math.Round((Math.Pow(radius, 2) * Math.PI))));
             break;
+        case 5:
+            string[] cities = new string[5] { "Санкт-Петербург", "Переславль-Залесский", "Феодосия", "Волгоград", "Джезказган" };
+            Console.WriteLine("Дан массив городов: " + string.Join(", ", cities));
+            Console.WriteLine("Какую букву найти? ");
+            printcity(cities, Convert.ToChar(Console.ReadLine() ?? "0"));
+            break;
         default:
             Console.WriteLine("Такую задачу ещё не решали. Выбирайте цифру с умом.");
             break;
     }
     Console.Write("Хотите решить ещё задачу? (y/n)}");
     Console.WriteLine();
-    switch (Console.ReadKey(true).KeyChar.ToString().ToLower()) 
+    switch (Console.ReadKey(true).KeyChar.ToString().ToLower())
     {
         case "y":
             wanttocontinue = true;
