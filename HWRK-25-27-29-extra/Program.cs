@@ -49,28 +49,19 @@ while (wanttocontinue)
             System.Console.WriteLine($"Получился массив: {string.Join("|", randomarr)}\nМаксимальное число в нём: {CurrentHWRK.getMaxNumberInArray(randomarr)}\n");
             break;
         case 5:
-            //штош, чтоб иметь возможность округлять, надо взять не целые числа. хз зачем, в итоге ведь все равно целые, но ок
-            System.Console.WriteLine("Введите размерность массивов N: ");
-            int n = CurrentHWRK.InputNumbers();
-            double[] array1 = CurrentHWRK.fillRandomArray(n, 1.0, 10);
-            double[] array2 = CurrentHWRK.fillRandomArray(n, 1.0, 10);
-            double sum1 = 0, sum2 = 0;
-            i = 0;
-            for (i = 0; i < n; i++)
-            {
-                sum1 += array1[i];
-                sum2 += array2[i];
-            }
-            //вот тут среднее арифметическое, чтоб не думали, что я не знаю, как его получают
-            // sum1=sum1/n; 
-            // sum2=sum2/n;
-
+            System.Console.Write("Введите размерность первого массива N1: ");
+            int n1 = CurrentHWRK.InputNumbers();
+            int[] array1 = CurrentHWRK.fillRandomArray(n1, 1, 10);
+            System.Console.Write("Введите размерность второго массива N2: ");
+            int n2 = CurrentHWRK.InputNumbers();
+            int[] array2 = CurrentHWRK.fillRandomArray(n2, 1, 10);
+            double sum1 = CurrentHWRK.getAverageFromArray(array1);
+            double sum2 = CurrentHWRK.getAverageFromArray(array2);
             int sum = sum1 > sum2 ? Convert.ToInt32(Math.Round(sum1 - sum2)) : Convert.ToInt32(Math.Round(sum2 - sum1));
 
             // System.Console.WriteLine(Convert.ToString(sum,2)); //ну ведь не о таком способе была речь, да? :)
 
             //поэтому будем чесать левое ухо правой пяткой
-            System.Console.WriteLine("Внимание, так как разница между СРЕДНИМИ АРИФМЕТИЧЕСКИМИ была чаще всего 1 и 0, а это скучно, то здесь разница между просто суммой.");
             System.Console.Write($"Полученное число {sum} в двоичном значении: ");
             List<int> reversenum = new List<int>();
             while (sum > 0)
@@ -183,5 +174,12 @@ class myLearningClass
         return maxnum;
     }
 
+    public double getAverageFromArray(int[] newarray)
+    {
+        int sum=0;
+        for (int i = 0; i < newarray.Length; i++)
+            sum += newarray[i];
+            return sum/newarray.Length;
+    }
 }
 
