@@ -1,22 +1,77 @@
-﻿
+﻿// Напишите программу, которая будет преобразовывать десятичное число в двоичное
+
+Console.Clear();
+// System.Console.WriteLine("Введите число в десятичном формате: ");
+// int number = int.Parse(System.Console.ReadLine());
+
+// // System.Console.WriteLine(Convert.ToString(number,2);
+
+// System.Console.Write($"Полученное число {number} в двоичном значении: ");
+// List<int> reversenum = new List<int>();
+// while (number > 0)                
+// {
+//     reversenum.Add(number % 2);
+//     number = number / 2;
+// }
+// for (int j = reversenum.Count; j > 0; j--)
+//     System.Console.Write(reversenum[j - 1]);
+
+// Не используя рекурсию, выведите первые N чисел Фибоначчи.
 
 
+// System.Console.WriteLine("Введите число: ");
+// int number = int.Parse(System.Console.ReadLine());
+// int i = 1;
+// List<int> array = new List<int>() { 0, 1 };
+// while (i < number - 1)
+// {
+//     array.Add(array[i] + array[i - 1]);
+//     i++;
+// }
+// System.Console.WriteLine("Числа Фибоначчи: " + string.Join("|", array));
 
+// Напишите программу, которая будет создавать копию заданного массива с помощью поэлементного копирования
 
+// int[] FillArray()
+// {
+//     int n=new Random().Next(5,10);
+//     int[] newarray=new int[n];
+//     for (int i = 0; i < n; i++)
+//     {
+//         newarray[i]=new Random().Next(1,20);
+//     }
+//     return newarray;
+// }
 
+// int[] newarray=FillArray();
+// System.Console.WriteLine("Первый массив: "+string.Join("|",newarray));
+// int[] secondarray=new int[newarray.Length];
+// for (int j=0;j<newarray.Length;j++)
+// {
+//     secondarray[j]=newarray[j];
+// }
+// System.Console.WriteLine("Копия массива: "+string.Join("|",secondarray));
 
+// // Напишите программу, которая принимает на вход три числа и проверяет, может ли существовать треугольник с сторонами такой длины
+// // Теорема о неравенстве треугольника: каждая сторона треугольника меньше суммы двух других сторон.
+// Console.Clear();
 
+// int InputNumbers()
+// {
+//     System.Console.Write("Введите число: ");
+//     int a = int.Parse(Console.ReadLine());
+//     return a;
+// }
 
+// System.Console.WriteLine("Нужно задать 3 числа для сторон треугольника");
+// int a = InputNumbers();
+// int b = InputNumbers();
+// int c = InputNumbers();
 
-
-
-
-
-
-
-
-
-
+// if (a<b+c && b<a+c && c<a+b)
+//     System.Console.WriteLine("Такой треугольник может существовать");
+// else
+//     System.Console.WriteLine("Такой треугольник не может существовать");
 
 
 // Рассчитать значение y при заданном x по формуле
@@ -59,11 +114,6 @@ switch(numofsqr)
         Console.WriteLine("Неверная цифра");
 }
 */
-
-
-
-
-
 
 
 

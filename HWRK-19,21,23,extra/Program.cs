@@ -149,8 +149,8 @@ while (wanttocontinue)
             writecubes(inputnumbers("Введите число N: "));
             break;
         case 4:
-            int radius = inputnumbers("Введите радиус круга: ");
-            maxnumber(Convert.ToInt32(Math.Round((Math.Pow(radius, 2) * Math.PI))));
+            // int radius = inputnumbers("Введите радиус круга: ");
+            maxnumber(Convert.ToInt32(Math.Round((Math.Pow(inputnumbers("Введите радиус круга: "), 2) * Math.PI))));
             break;
         case 5:
             string[] cities = new string[5] { "Санкт-Петербург", "Переславль-Залесский", "Феодосия", "Волгоград", "Джезказган" };
