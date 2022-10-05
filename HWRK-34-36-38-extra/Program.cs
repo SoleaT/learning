@@ -33,7 +33,7 @@ while (wanttocontinue)
             break;
         case 3:
             double[] array1 = currentwork.FillRandomArray(size, 0.0, 50.0);
-            double maxnumber = currentwork.GetMaxNumberInArray(array1), minumber = currentwork.GetMinNumberInArray(array1);
+            double maxnumber =array1.Max(), minumber = array1.Min();
             System.Console.WriteLine($"Разница между максимальным {Math.Round(maxnumber, 2)} и минимальным {Math.Round(minumber, 2)} равна {Math.Round(maxnumber - minumber, 2)}");
             break;
         case 4:
