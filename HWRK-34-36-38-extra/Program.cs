@@ -20,16 +20,17 @@ while (wanttocontinue)
 
     System.Console.WriteLine("Выберите номер задачи (1 2 3 4 5): ");
     int numofwork = currentwork.InputNumbers();
-    int size = new Random().Next(10, 30); ;
+    int size = new Random().Next(10, 30); 
+    int[] arrayint=new int[size];
     switch (numofwork) //разбор по задачам
     {
         case 1:
-            int[] array = currentwork.FillRandomArray(size, 100, 1000);
-            System.Console.WriteLine("Количество чётных элементов в массиве " + string.Join("|", array) + " равно " + currentwork.CountEvenNumbers(array));
+            arrayint = currentwork.FillRandomArray(size, 100, 1000);
+            System.Console.WriteLine("Количество чётных элементов в массиве " + string.Join("|", arrayint) + " равно " + currentwork.CountEvenNumbers(arrayint));
             break;
         case 2:
-            int[] array2 = currentwork.FillRandomArray(size, 0, 100);
-            System.Console.WriteLine("Сумма элементов на нечётных позициях в массиве " + string.Join("|", array2) + " равно " + currentwork.CountSumOnEvenPositions(array2));
+            arrayint = currentwork.FillRandomArray(size, 0, 100);
+            System.Console.WriteLine("Сумма элементов на нечётных позициях в массиве " + string.Join("|", arrayint) + " равно " + currentwork.CountSumOnEvenPositions(arrayint));
             break;
         case 3:
             double[] array1 = currentwork.FillRandomArray(size, 0.0, 50.0);
@@ -37,9 +38,9 @@ while (wanttocontinue)
             System.Console.WriteLine($"Разница между максимальным {Math.Round(maxnumber, 2)} и минимальным {Math.Round(minumber, 2)} равна {Math.Round(maxnumber - minumber, 2)}");
             break;
         case 4:
-            int[] array3 = currentwork.FillRandomArray(size, 0, 100);
-            double evensum = currentwork.GetAverageFromArray(currentwork.MakeEvenOddArrays(array3).evenarray);
-            double oddsum = currentwork.GetAverageFromArray(currentwork.MakeEvenOddArrays(array3).oddarray);
+            arrayint = currentwork.FillRandomArray(size, 0, 100);
+            double evensum = currentwork.GetAverageFromArray(currentwork.MakeEvenOddArrays(arrayint).evenarray);
+            double oddsum = currentwork.GetAverageFromArray(currentwork.MakeEvenOddArrays(arrayint).oddarray);
             if (evensum > oddsum)
                 System.Console.WriteLine("средн. арифм. значений элементов массива с чётными числами > средн. арифм. значений элементов с нечётными числами");
             else if (oddsum > evensum)
@@ -50,13 +51,13 @@ while (wanttocontinue)
         case 5:
             System.Console.Write("Задайте размерность массива N: ");
             size = currentwork.InputNumbers();
-            int[] array4=currentwork.FillRandomArray(size,0,10);
+            arrayint=currentwork.FillRandomArray(size,0,10);
             bool ifMax = false, ifMin = false;
-            System.Console.WriteLine("Массив: "+string.Join(" ", array4));
+            System.Console.WriteLine("Массив: "+string.Join(" ", arrayint));
             for (int i = 1; i < size; i++)
             {
-                if (array4[i] > array4[i - 1]) ifMax = true;
-                if (array4[i] < array4[i - 1]) ifMin = true;
+                if (arrayint[i] > arrayint[i - 1]) ifMax = true;
+                if (arrayint[i] < arrayint[i - 1]) ifMin = true;
             }
             if (ifMax && ifMin) System.Console.WriteLine("Элементы расположены хаотично");
             else if (!ifMax && !ifMin) System.Console.WriteLine("Элементы равны");
