@@ -24,125 +24,132 @@ public class myLearningClass
         return number;
     }
 
-    public int CountDigits(int countnum) //считает сумму цифр в числе
+    public int CountDigits(int countNum) //считает сумму цифр в числе
     {
         int sum = 0;
-        while (countnum > 0)
+        while (countNum > 0)
         {
-            sum = sum + countnum % 10;
-            countnum = countnum / 10;
+            sum = sum + countNum % 10;
+            countNum = countNum / 10;
         }
         return sum;
     }
 
+    #region FillArrays
+
     // замены этой функции, но без проверки на вшивость:
-    // int[] inputarray = Array.ConvertAll(Console.ReadLine().Split(" "), int.Parse);
-    // int[] inputarray = Console.ReadLine()!.Split(separators).Select(int.Parse).ToArray();
+    // int[] inputArray = Array.ConvertAll(Console.ReadLine().Split(" "), int.Parse);
+    // int[] inputArray = Console.ReadLine()!.Split(separators).Select(int.Parse).ToArray();
     public int[] FillArrayFromString(string inputstring) //заполнение целочисленного массива из строки
     {
         char[] separators = { ' ', ',', ';' };
-        string[] temparray = inputstring.Split(separators);
-        int[] newarray = new int[temparray.Length];
+        string[] tempArray = inputstring.Split(separators);
+        int[] newArray = new int[tempArray.Length];
         var r = new Random();
-        for (int i = 0; i < temparray.Length; i++)
+        for (int i = 0; i < tempArray.Length; i++)
         {
             try
             {
-                newarray[i] = int.Parse(temparray[i]);
+                newArray[i] = int.Parse(tempArray[i]);
             }
             catch (FormatException)
             {
-                newarray[i] = r.Next(-10, 10);
+                newArray[i] = r.Next(-10, 10);
                 throw;
             }
         }
-        return newarray;
+        return newArray;
     }
 
-    public int[] FillRandomArray(int arraylength, int firstnum, int secondnum) //заполнение целочисленного рандомного массива
+    public int[] FillRandomArray(int size, int firstNum, int secondNum) //заполнение целочисленного рандомного массива
     {
-        int[] newarray = new int[arraylength];
-        for (int i = 0; i < arraylength; i++)
-            newarray[i] = new Random().Next(firstnum, secondnum);
-        return newarray;
+        int[] newArray = new int[size];
+        for (int i = 0; i < size; i++)
+            newArray[i] = new Random().Next(firstNum, secondNum);
+        return newArray;
     }
-    public double[] FillRandomArray(int arraylength, double firstnum, double secondnum) //заполнение массива double рандомно
+    public double[] FillRandomArray(int size, double firstNum, double secondNum) //заполнение массива double рандомно
     {
-        double[] newarray = new double[arraylength];
-        for (int i = 0; i < arraylength; i++)
+        double[] newArray = new double[size];
+        for (int i = 0; i < size; i++)
         {
             var rnd = new Random();
-            newarray[i] = firstnum + rnd.NextDouble() * (secondnum - firstnum);
+            newArray[i] = firstNum + rnd.NextDouble() * (secondNum - firstNum);
         }
-        return newarray;
+        return newArray;
     }
 
-    //замена этой функции .Max()
-    public int GetMaxNumberInArray(int[] newarray) //найти максимум в массиве. 
+    #endregion
+
+    #region Max-Min-Average
+
+    //замена этой функции - .Max()
+    public int GetmaxNumberInArray(int[] newArray) //найти максимум в массиве. 
     {
-        int maxnum = newarray[0];
-        int size = newarray.Length;
+        int maxNum = newArray[0];
+        int size = newArray.Length;
         for (int i = 1; i < size; i++)
-            if (newarray[i] > maxnum) maxnum = newarray[i];
-        return maxnum;
+            if (newArray[i] > maxNum) maxNum = newArray[i];
+        return maxNum;
     }
 
-    //замена этой функции .Min()
-    public int GetMinNumberInArray(int[] newarray) //найти минимум в массиве. 
+    //замена этой функции - .Min()
+    public int GetminNumberInArray(int[] newArray) //найти минимум в массиве. 
     {
-        int minnum = newarray[0];
-        int size = newarray.Length;
+        int minNum = newArray[0];
+        int size = newArray.Length;
         for (int i = 1; i < size; i++)
-            if (newarray[i] < minnum) minnum = newarray[i];
-        return minnum;
+            if (newArray[i] < minNum) minNum = newArray[i];
+        return minNum;
     }
 
 
-    public double GetAverageFromArray(int[] newarray) //найти среднее арифм. массива
+    public double GetAverageFromArray(int[] newArray) //найти среднее арифм. массива
     {
         int sum = 0;
-        int size = newarray.Length;
+        int size = newArray.Length;
         for (int i = 0; i < size; i++)
-            sum += newarray[i];
+            sum += newArray[i];
         return sum / size;
     }
 
-    //замена этой функции .Max()
-    public double GetMaxNumberInArray(double[] newarray) //найти максимум в массиве double. 
+    //замена этой функции - .Max()
+    public double GetmaxNumberInArray(double[] newArray) //найти максимум в массиве double. 
     {
-        double maxnum = newarray[0];
-        int size = newarray.Length;
+        double maxNum = newArray[0];
+        int size = newArray.Length;
         for (int i = 1; i < size; i++)
-            if (newarray[i] > maxnum) maxnum = newarray[i];
-        return maxnum;
+            if (newArray[i] > maxNum) maxNum = newArray[i];
+        return maxNum;
     }
 
-    //замена этой функции Array.Min()
-    public double GetMinNumberInArray(double[] newarray) //найти минимум в массиве double. 
+    //замена этой функции - Array.Min()
+    public double GetminNumberInArray(double[] newArray) //найти минимум в массиве double. 
     {
-        double minnum = newarray[0];
-        int size = newarray.Length;
+        double minNum = newArray[0];
+        int size = newArray.Length;
         for (int i = 1; i < size; i++)
-            if (newarray[i] < minnum) minnum = newarray[i];
-        return minnum;
+            if (newArray[i] < minNum) minNum = newArray[i];
+        return minNum;
     }
 
-    public double GetAverageFromArray(double[] newarray) //найти среднее арифм. массива double
+    public double GetAverageFromArray(double[] newArray) //найти среднее арифм. массива double
     {
         double sum = 0;
-        int size = newarray.Length;
+        int size = newArray.Length;
         for (int i = 0; i < size; i++)
-            sum += newarray[i];
+            sum += newArray[i];
         return sum / size;
     }
+    #endregion
 
-    public int CountEvenNumbers(int[] newarray) //найти кол-во чётных элементов в массиве
+    public int CountEvenNumbers(int[] newArray) //найти кол-во чётных элементов в массиве
     {
         int sum = 0;
-        int size = newarray.Length;
+        int size = newArray.Length;
         for (int i = 0; i < size; i++)
         {
-            if (newarray[i] % 2 == 0) sum++;
+            if (newArray[i] % 2 == 0) sum++;
         }
         return sum;
     }
@@ -154,36 +161,36 @@ public class myLearningClass
             if (i % 2 != 0) sum += array[i];
         return sum;
     }
-    public (int[] evenarray, int[] oddarray) MakeEvenOddArrays(int[] array) //делим массив на 2 массива: четных и нечетных чисел
+    public (int[] evenArray, int[] oddArray) MakeEvenoddArrays(int[] array) //делим массив на 2 массива: четных и нечетных чисел
     {
         int size = array.Length;
-        List<int> evenarray = new List<int>();
-        List<int> oddarray = new List<int>();
+        List<int> evenArray = new List<int>();
+        List<int> oddArray = new List<int>();
         for (int i = 0; i < size; i++)
         {
             if (array[i] % 2 == 0)
-                evenarray.Add(array[i]);
+                evenArray.Add(array[i]);
             else
-                oddarray.Add(array[i]);
+                oddArray.Add(array[i]);
         }
-        return (evenarray.ToArray(), oddarray.ToArray());
+        return (evenArray.ToArray(), oddArray.ToArray());
     }
 
-    public int[] MoveArrayToSide(int[] inputarray, char parameter)
+    public int[] MoveArrayToSide(int[] inputArray, char parameter) //сдвигает массив на 1 символ
     {
-        int size = inputarray.Length;
-        int[] newarray = new int[size];
+        int size = inputArray.Length;
+        int[] newArray = new int[size];
         if (parameter == 'l')
         {
-            Array.Copy(inputarray, 1, newarray, 0, size - 1);
-            newarray[size - 1] = inputarray[0];
+            Array.Copy(inputArray, 1, newArray, 0, size - 1);
+            newArray[size - 1] = inputArray[0];
         }
         else if (parameter == 'r')
         {
-            Array.Copy(inputarray, 0, newarray, 1, size - 1);
-            newarray[0] = inputarray[size - 1];
+            Array.Copy(inputArray, 0, newArray, 1, size - 1);
+            newArray[0] = inputArray[size - 1];
         }
-        return newarray;
+        return newArray;
     }
 
 }
