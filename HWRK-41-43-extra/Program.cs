@@ -39,7 +39,7 @@ while (wantToContinue)
 
             //неклассик. есть прогресс: я знаю, что b=>b>0 это лямбда-выражение, но что оно и как работает - всё ещё не знаю :'( 
             int[] temparray = Array.FindAll(inputarray, b => b > 0);
-            System.Console.WriteLine("Вы ввели " + temparray.Length + " чисел больше 0, от таких: " + string.Join(" ", temparray));
+            System.Console.WriteLine($"Вы ввели {temparray.Length} чисел больше 0, от таких: {string.Join(" ", temparray)}");
             break;
         case 2:
             System.Console.WriteLine("Введите значения k1 b1 k2 b2 через пробел: ");
@@ -85,7 +85,7 @@ while (wantToContinue)
             int[] newArray2 = currentWork.FillRandomArray(size, 5, 10); //да, опять заполняю массив, но ведь в первых двух задачах его не было
             int yPosOld=Console.CursorTop,
                 yPos = yPosOld + 2;
-            System.Console.WriteLine("У нас есть массив [" + string.Join(" ", newArray2) + "]");
+            System.Console.WriteLine($"У нас есть массив [{string.Join(" ", newArray2)}]");
             bool checkNumber = false;
             bool weFoundIt = false;
             var r = new Random();
@@ -112,7 +112,7 @@ while (wantToContinue)
                 }
             }
             Console.ResetColor();
-            if (weFoundIt) System.Console.WriteLine("После замены получился массив: [" + string.Join(" ", newArray2) + "]");
+            if (weFoundIt) System.Console.WriteLine($"После замены получился массив: [{string.Join(" ", newArray2)}]");
             else System.Console.WriteLine("Повторяющиеся цифры не найдены");
             break;
         default:
