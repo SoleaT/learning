@@ -77,8 +77,7 @@ while (wanttocontinue)
             Console.WriteLine("Такую задачу ещё не решали. Выбирайте цифру с умом.");
             break;
     }
-    Console.Write("Хотите решить ещё задачу? (y/n)}");
-    Console.WriteLine();
+    Console.WriteLine("Хотите решить ещё задачу? (y/n)}");
     switch (Console.ReadKey(true).KeyChar.ToString().ToLower())
     {
         case "y":
@@ -176,10 +175,10 @@ class myLearningClass
 
     public double getAverageFromArray(int[] newarray)
     {
-        int sum=0;
+        int sum = 0;
         for (int i = 0; i < newarray.Length; i++)
             sum += newarray[i];
-            return sum/newarray.Length;
+        return sum / newarray.Length;
     }
 }
 
