@@ -3,7 +3,11 @@
 //функции нахождения максимума и минимума, заполнения массива строкой - неактуальны
 public class myLearningClass
 {
-    public int InputNumbers() //ввод числа - на выходе получается int число, без вариантов, уруру
+    ///<summary>
+    ///Ввод числа
+    ///</summary>
+    ///<returns>Проверенное целое число</returns>
+    public int InputNumbers()
     {
         int number = 0;
         bool isConverted = false;
@@ -24,7 +28,13 @@ public class myLearningClass
         return number;
     }
 
-    public int CountDigits(int countNum) //считает сумму цифр в числе
+
+    ///<summary>
+    ///Сумма цифр в числе
+    ///</summary>
+    ///<param name="countNum">Число</param>
+    ///<returns>Сумма цифр</returns>
+    public int CountDigits(int countNum)
     {
         int sum = 0;
         while (countNum > 0)
@@ -32,6 +42,9 @@ public class myLearningClass
             sum = sum + countNum % 10;
             countNum = countNum / 10;
         }
+        //вариант математический - логарифм по основанию 10 показывает в какую степень 
+        //возвести 10, чтоб получить число. округляем до большего
+        //double sum=Math.Ceiling(Math.Log10(countNum))
         return sum;
     }
 
@@ -40,7 +53,10 @@ public class myLearningClass
     // замены этой функции, но без проверки на вшивость:
     // int[] inputArray = Array.ConvertAll(Console.ReadLine().Split(" "), int.Parse);
     // int[] inputArray = Console.ReadLine()!.Split(separators).Select(int.Parse).ToArray();
-    public int[] FillArrayFromString(string inputstring) //заполнение целочисленного массива из строки
+    ///<summary>
+    ///Заполнение одномерного целочисленного массива из строки
+    ///</summary>
+    public int[] FillArrayFromString(string inputstring)
     {
         char[] separators = { ' ', ',', ';' };
         string[] tempArray = inputstring.Split(separators);
@@ -61,14 +77,28 @@ public class myLearningClass
         return newArray;
     }
 
-    public int[] FillRandomArray(int size, int firstNum, int secondNum) //заполнение целочисленного рандомного массива
+    ///<summary>
+    ///Заполнение одномерного целочисленного массива случайно
+    ///</summary>
+    ///<param name="size">Размер массива</param>
+    ///<param name="firstNum">начиная с числа</param>
+    ///<param name="secondNum">заканчивая числом</param>
+    ///<returns>Массив</returns>
+    public int[] FillRandomArray(int size, int firstNum, int secondNum)
     {
         int[] newArray = new int[size];
         for (int i = 0; i < size; i++)
             newArray[i] = new Random().Next(firstNum, secondNum);
         return newArray;
     }
-    public double[] FillRandomArray(int size, double firstNum, double secondNum) //заполнение массива double рандомно
+    ///<summary>
+    ///Заполнение одномерного вещественного массива случайно
+    ///</summary>
+    ///<param name="size">Размер массива</param>
+    ///<param name="firstNum">начиная с числа</param>
+    ///<param name="secondNum">заканчивая числом</param>
+    ///<returns>Массив</returns>
+    public double[] FillRandomArray(int size, double firstNum, double secondNum)
     {
         double[] newArray = new double[size];
         for (int i = 0; i < size; i++)
@@ -79,6 +109,94 @@ public class myLearningClass
         return newArray;
     }
 
+    ///<summary>
+    ///Заполнение двумерного массива случайно
+    ///</summary>
+    ///<param name="int[,]">Целочисленный массив</param>
+    ///<param name="firstNum">начиная с числа</param>
+    ///<param name="secondNum">заканчивая числом</param>
+    ///<returns></returns>
+    public void FillRandomArray(int[,] tempArray, int firstNum, int secondNum)
+    {
+        int rows = tempArray.GetLength(0);
+        int cols = tempArray.GetLength(1);
+        var r = new Random();
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                tempArray[i, j] = r.Next(firstNum, secondNum);
+            }
+        }
+        // return tempArray;
+    }
+
+    ///<summary>
+    ///Заполнение двумерного массива случайно
+    ///</summary>
+    ///<param name="double[,]">Вещественный массив</param>
+    ///<param name="firstNum">начиная с числа</param>
+    ///<param name="secondNum">заканчивая числом</param>
+    ///<returns></returns>
+    public void FillRandomArray(double[,] tempArray,
+                                double firstNum,
+                                double secondNum)
+    {
+        int rows = tempArray.GetLength(0);
+        int cols = tempArray.GetLength(1);
+        var r = new Random();
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                tempArray[i, j] = Math.Round(firstNum + r.NextDouble() * (secondNum - firstNum), 2);
+            }
+        }
+    }
+
+    #endregion
+
+    #region Print
+
+    ///<summary>
+    ///Печать двумерного массива
+    ///</summary>
+    ///<param name="int[,]">Целочисленный массив</param>
+    ///<returns></returns>
+    public void PrintMatrix(int[,] tempArray)
+    {
+        int rows = tempArray.GetLength(0);
+        int cols = tempArray.GetLength(1);
+        for (int i = 0; i < rows; i++)
+        {
+            System.Console.Write("[");
+            for (int j = 0; j < cols; j++)
+            {
+                System.Console.Write($"{tempArray[i, j]} ");
+            }
+            System.Console.WriteLine("]");
+        }
+    }
+
+    ///<summary>
+    ///Печать двумерного массива
+    ///</summary>
+    ///<param name="double[,]">Вещественный массив</param>
+    ///<returns></returns>
+    public void PrintMatrix(double[,] tempArray) //печать двумерного массива
+    {
+        int rows = tempArray.GetLength(0);
+        int cols = tempArray.GetLength(1);
+        for (int i = 0; i < rows; i++)
+        {
+            System.Console.Write("[");
+            for (int j = 0; j < cols; j++)
+            {
+                System.Console.Write($"{tempArray[i, j]} ");
+            }
+            System.Console.WriteLine("]");
+        }
+    }
     #endregion
 
     #region Max-Min-Average
@@ -143,6 +261,11 @@ public class myLearningClass
     }
     #endregion
 
+    ///<summary>
+    ///Возвращает количество чётных элементов в массиве
+    ///</summary>
+    ///<param name="newArray">массив int[]</param>
+    ///<returns>Количество</returns>
     public int CountEvenNumbers(int[] newArray) //найти кол-во чётных элементов в массиве
     {
         int sum = 0;
@@ -153,7 +276,13 @@ public class myLearningClass
         }
         return sum;
     }
-    public int CountSumOnEvenPositions(int[] array) //найти сумму элементов массива на чётных позициях
+
+    ///<summary>
+    ///найти сумму элементов массива на чётных позициях
+    ///</summary>
+    ///<param name="array">массив int[]</param>
+    ///<returns>Сумма</returns>    
+    public int CountSumOnEvenPositions(int[] array)
     {
         int sum = 0;
         int size = array.Length;
@@ -161,7 +290,13 @@ public class myLearningClass
             if (i % 2 != 0) sum += array[i];
         return sum;
     }
-    public (int[] evenArray, int[] oddArray) MakeEvenoddArrays(int[] array) //делим массив на 2 массива: четных и нечетных чисел
+
+    ///<summary>
+    ///делим массив на 2 массива: четных и нечетных чисел
+    ///</summary>
+    ///<param name="array">массив int[]</param>
+    ///<returns>(evenArray,oddArray) - кортеж массивов</returns> 
+    public (int[] evenArray, int[] oddArray) MakeEvenoddArrays(int[] array) //
     {
         int size = array.Length;
         List<int> evenArray = new List<int>();
@@ -174,23 +309,6 @@ public class myLearningClass
                 oddArray.Add(array[i]);
         }
         return (evenArray.ToArray(), oddArray.ToArray());
-    }
-
-    public int[] MoveArrayToSide(int[] inputArray, char parameter) //сдвигает массив на 1 символ
-    {
-        int size = inputArray.Length;
-        int[] newArray = new int[size];
-        if (parameter == 'l')
-        {
-            Array.Copy(inputArray, 1, newArray, 0, size - 1);
-            newArray[size - 1] = inputArray[0];
-        }
-        else if (parameter == 'r')
-        {
-            Array.Copy(inputArray, 0, newArray, 1, size - 1);
-            newArray[0] = inputArray[size - 1];
-        }
-        return newArray;
     }
 
 }
