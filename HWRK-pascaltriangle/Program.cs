@@ -26,13 +26,9 @@ void PrintMatrix(int[,] tempArray)
     for (int i = 0; i < rows; i++)
     {
         for (int q = 0; q < rows - i; q++)
-                {
-                    System.Console.Write("  ");
-                }
+            System.Console.Write("  ");
         for (int j = 0; j < rows; j++)
-        {
-            if (tempArray[i, j] != 0) System.Console.Write("  {0:D} ",tempArray[i, j]);
-        }
+            if (tempArray[i, j] != 0) System.Console.Write("  {0:D} ", tempArray[i, j]);
         System.Console.WriteLine();
     }
 }
