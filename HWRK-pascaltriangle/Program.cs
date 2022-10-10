@@ -23,15 +23,15 @@ PrintMatrix(pascalArray);
 void PrintMatrix(int[,] tempArray)
 {
     int rows = tempArray.GetLength(0);
-    int cols = tempArray.GetLength(1);
-    int cursorPos;
     for (int i = 0; i < rows; i++)
     {
-        cursorPos = Console.WindowWidth / 2 - i;
-        Console.SetCursorPosition(cursorPos, Console.CursorTop);
-        for (int j = 0; j < cols; j++)
+        for (int q = 0; q < rows - i; q++)
+                {
+                    System.Console.Write("  ");
+                }
+        for (int j = 0; j < rows; j++)
         {
-            if (tempArray[i, j] != 0) System.Console.Write($"{tempArray[i, j]} ");
+            if (tempArray[i, j] != 0) System.Console.Write("  {0:D} ",tempArray[i, j]);
         }
         System.Console.WriteLine();
     }
