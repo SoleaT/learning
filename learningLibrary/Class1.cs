@@ -172,7 +172,7 @@ public class myLearningClass
             System.Console.Write("[");
             for (int j = 0; j < cols; j++)
             {
-                System.Console.Write($"{tempArray[i, j]} ");
+                System.Console.Write("{0,3}",tempArray[i, j]);
             }
             System.Console.WriteLine("]");
         }
