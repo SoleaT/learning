@@ -9,21 +9,26 @@ int yCount = int.Parse(Console.ReadLine()!);
 System.Console.Write("Введите размерность третьего измерения: ");
 int zCount = int.Parse(Console.ReadLine()!);
 
-int[,,] matrix3D = Fill3DMatrix(xCount, yCount, zCount);
-Print3DMatrix(matrix3D);
+if (xCount * yCount * zCount >= 100 | xCount * yCount * zCount < 10)
+    System.Console.WriteLine("Для такого массива невозможно заполнение двузначными числами");
+else
+{
+    int[,,] matrix3D = Fill3DMatrix(xCount, yCount, zCount);
+    Print3DMatrix(matrix3D);
+}
 
 int[,,] Fill3DMatrix(int x, int y, int z)
 {
     int[,,] tempArray = new int[x, y, x];
     var r = new Random();
-    int newDig = r.Next(1, 5);
+    int newDig = r.Next(10, 100);
     for (int i = 0; i < x; i++)
         for (int j = 0; j < y; j++)
             for (int k = 0; k < z; k++)
             {
                 while (isDigitExists(tempArray, newDig))
                 {
-                    newDig = r.Next(1, x*y*z+1);
+                    newDig = r.Next(10, 100);
                 }
                 tempArray[i, j, k] = newDig;
             }
@@ -54,7 +59,7 @@ void Print3DMatrix(int[,,] tempArray)
             System.Console.WriteLine();
             for (int k = 0; k < z; k++)
             {
-                System.Console.Write("{0,4}",tempArray[i, j,k]);
+                System.Console.Write("{0,4}", tempArray[i, j, k]);
                 System.Console.Write($"({i},{j},{k})");
             }
         }
