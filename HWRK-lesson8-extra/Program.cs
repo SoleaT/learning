@@ -9,8 +9,8 @@ int yCount = int.Parse(Console.ReadLine()!);
 System.Console.Write("Введите размерность третьего измерения: ");
 int zCount = int.Parse(Console.ReadLine()!);
 
-if (xCount * yCount * zCount >= 100 | xCount * yCount * zCount < 10)
-    System.Console.WriteLine("Для такого массива невозможно заполнение двузначными числами");
+if (xCount * yCount * zCount >= 100)
+    System.Console.WriteLine("Для такого массива невозможно заполнение уникальными двузначными числами");
 else
 {
     int[,,] matrix3D = Fill3DMatrix(xCount, yCount, zCount);
