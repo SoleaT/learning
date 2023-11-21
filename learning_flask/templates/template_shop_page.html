@@ -1,0 +1,25 @@
+{% extends 'template_index.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="{{ url_for('index') }}">Главная</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="content one_item">
+        <div style="width: 388px"><img src="{{ url_for('static', filename=info.img_url) }}"></div>
+        <div class="one_item_text">
+            <h3>{{ info.name }}</h3>
+            <p class="price">{{ info.price }}</p>
+            <p><b>Фичи:</b>
+                <ul>
+                {% for feature in info.text %}
+                    <li> {{ feature }}</li>
+                {% endfor %}
+                </ul>
+            <br>
+            <button id="buy" formaction="#" class="button">Купить</button>
+        </div>
+    </div>
+{% endblock %}

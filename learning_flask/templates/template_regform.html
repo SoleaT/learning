@@ -1,0 +1,76 @@
+{% extends 'template_index.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="{{ url_for('index') }}">Главная</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    {% if not user %}
+        <div class="content form_style">
+            <div class="form_container">
+                <h3>Регистрация пользователя</h3>
+            </div>
+            <div class="form_container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if form.errors %}
+                        <span class="alert alert-info">
+                        {% for field, errors in form.errors.items() %}
+                            <small>
+                                {{ ', '.join(errors) }}
+                            <br>
+                            </small>
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <div class="form_container">
+                <form id="register" method="post" action="{{ url_for('new_user') }}" class="form_v">
+                    {{ form.csrf_token }}
+                    <p>
+                        {{ form.username(class='input_text',placeholder='Имя') }}
+                    </p>
+                    <p>
+                        {{ form.email(class='input_text',placeholder='Е-mail') }} *
+                    </p>
+                    <p>
+                        {{ form.password(class='input_text',placeholder='Пароль') }} *
+                    </p>
+                    <p>
+                        {{ form.confirm_pass(class='input_text',placeholder='Повторите пароль') }} *
+                    </p>
+                    <p>
+                        {% for f in form.gender %}
+                            {{ f }} {{ f.label }}
+                        {% endfor %}
+                    </p>
+                    <br>
+                    {{ form.submit(class='button') }}
+                </form>
+
+            </div>
+
+        </div>
+    {% else %}
+        <div class="content form_style">
+            <div class="form_container">
+                <h3>Привет, {{ name }}!</h3>
+            </div>
+            <div class="form_container">
+                <form action="{{ url_for('logout') }}">
+                    <button class="button">Выйти</button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
