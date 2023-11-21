@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <script src="https://kit.fontawesome.com/4c0a787120.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for("static", filename="bootstrap.min.css") }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+<div class="header">
+    <img src="{{ url_for('static', filename='images/leaves.jpg') }}" alt="">
+</div>
+<div class="container">
+{% block nav %}
+
+{% endblock %}
+{% block content %}
+    <div class="content item_flex">
+        <div class="toptext">
+            <h1>Учебная<br>работа</h1>
+            <h2>Просто ящерка, почему бы и да</h2>
+        </div>
+        <div class="top_pic"><img src="{{  url_for('static', filename='images/v1_03.jpg') }}" alt=""></div>
+    </div>
+    <div class="content item_flex">
+        {% for item in homeworks %}
+        <div class="item">
+            <button type="submit" class="button b_small">{{ item.name }}</button>
+            <a href="{{ item.link }}"><img src="{{ url_for('static', filename=item.img_url)}}" alt="alt"></a></div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+<div class="footer">
+{% block footer %}
+    <div class="footer_text">
+    @Copyright Ящерка
+    <a href="https://t.me/soleatoys"><i class="fa fa-brands fa-telegram"></i></a>
+    </div>
+{% endblock %}
+</div>
+
+
+
+
+</body>
+</html>
