@@ -1,0 +1,39 @@
+using System.Text;
+using System.Net.Sockets;
+
+namespace Server
+{
+    class OurServer
+    {
+        TcpListener server;
+        public OurServer()
+        {
+            server=new TcpListener(IPAddress.Parse("127.0.0.1",5555));
+            server.Start();
+
+            LoopClients();
+        }
+
+        void LoopClients()
+        {
+            while(true)
+            {
+                TcpClient client=server.AcceptTclpClient();
+
+                Thread thread=new Thread(()=>HandleClient(client));
+                thread.Start();
+            }
+        }
+
+        void HandleClient(TcpClient client) //мультипоточные клиенты
+        {
+            StreamReader sReader=new StreamReader(client.GetStream(),Encoding.UTF8);
+
+            while (true)
+            {
+                string message=sReader.ReadLine();
+                Console.WriteLine($"Клиент написал - {message}")
+            }
+        }
+    }
+}

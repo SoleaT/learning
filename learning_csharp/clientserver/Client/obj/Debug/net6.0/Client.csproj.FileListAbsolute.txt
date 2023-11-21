@@ -1,0 +1,15 @@
+G:\work\csharp works\clientserver\Client\bin\Debug\net6.0\Client.exe
+G:\work\csharp works\clientserver\Client\bin\Debug\net6.0\Client.deps.json
+G:\work\csharp works\clientserver\Client\bin\Debug\net6.0\Client.runtimeconfig.json
+G:\work\csharp works\clientserver\Client\bin\Debug\net6.0\Client.dll
+G:\work\csharp works\clientserver\Client\bin\Debug\net6.0\Client.pdb
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.csproj.AssemblyReference.cache
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.GeneratedMSBuildEditorConfig.editorconfig
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.AssemblyInfoInputs.cache
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.AssemblyInfo.cs
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.csproj.CoreCompileInputs.cache
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.dll
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\refint\Client.dll
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.pdb
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\Client.genruntimeconfig.cache
+G:\work\csharp works\clientserver\Client\obj\Debug\net6.0\ref\Client.dll
