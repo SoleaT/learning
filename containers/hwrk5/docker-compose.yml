@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+    db:
+      image:postgres
+      restart:always
+      ports:
+        -5432:5432
+      environment:
+        PGPASSWORD: 12345
+    
+    adminer:
+      image:adminer
+      restart:always
+      ports:
+        -6080:8080
