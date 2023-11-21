@@ -4,9 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/architecture" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/learning_csharp/Class and home works" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/learning_csharp/Examples" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/learning_csharp/clientserver" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/learning_csharp/testwork/testwork" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/learning_csharp/various-csharp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/learning_django" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/learning_python" vcs="Git" />
