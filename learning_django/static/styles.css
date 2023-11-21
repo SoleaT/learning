@@ -1,0 +1,298 @@
+.container {
+    background-color: white;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    display: flex;
+    width: 1200px;
+    align-content: center;
+}
+
+.header {
+    height: 280px;
+    background: bisque linear-gradient(#ffdcc9, #ffe7db, #ffffff);
+    text-align: center;
+}
+
+.toptext {
+    margin-left: 100px;
+    text-align: left;
+    vertical-align: top;
+    height: 450px;
+}
+
+.top_pic {
+    height: 450px;
+    justify-content: flex-start;
+    vertical-align: top;
+}
+
+.pathlink {
+    color: #33acca;
+    font-family: "Nunito Light", sans-serif;
+    font-size: 12pt;
+}
+
+.page2_header {
+    margin-left: 100px;
+    text-align: left;
+    vertical-align: center;
+    height: 206px;
+}
+
+.one_item {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.categories {
+    height: 350px;
+}
+
+p, ul {
+    color: #353535;
+    font-family: Nunito, sans-serif;
+}
+
+.price {
+    font-family: Nunito, sans-serif;
+    font-size: 60px;
+    color: #db7839;
+    margin-top: 0;
+}
+
+.price-small {
+    font-size: 40px;
+    color: #db7839;
+}
+
+li {
+    margin: 0.7em;
+}
+
+a {
+    text-decoration: none;
+    color: #25859d;
+}
+
+.footer {
+    background: #25859d;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.footer_text {
+    padding-left: 100px;
+    color: white;
+    font-family: "Nunito Light", sans-serif;
+    font-size: 16pt;
+    width: 1200px;
+    vertical-align: center;
+}
+
+.category_link {
+    font-family: "Nunito SemiBold", sans-serif;
+    font-size: 20pt;
+    color: #25859d;
+    list-style-type: none;
+}
+
+h3 {
+    font-family: "Montserrat Alternates", Nunito, sans-serif;
+    font-weight: normal;
+    font-size: 40px;
+    color: #25859d;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: "Nunito Light", sans-serif;
+    font-size: 16pt;
+    color: #33acca;
+}
+
+h1 {
+    font-family: "Montserrat Alternates", Nunito, sans-serif;
+    font-weight: normal;
+    font-size: 60pt;
+    color: #25859d;
+    margin-bottom: 2px;
+    margin-top: 52px;
+}
+
+.item_flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item {
+    border: 0;
+    text-align: center;
+    width: 25%;
+}
+
+.one_item_text {
+    text-align: left;
+    padding: 0;
+}
+
+.button {
+    display: inline-block;
+    background: #25859d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: "Nunito Light", sans-serif;
+    font-size: 18pt;
+    line-height: 1;
+    font-weight: 200;
+    cursor: pointer;
+    padding: 12px 50px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2)
+}
+
+.b_small {
+    background: #33acca;
+    font-size: 13pt;
+    padding: 6px 20px;
+    margin: 5px
+}
+
+.b_small:hover {
+    background: #1d6172;
+}
+
+.button:hover {
+    background: #33acca;
+}
+
+.button:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.form_style {
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+
+.form_container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+form {
+    margin-bottom: 100px;
+    display: flex;
+}
+
+.form_v {
+    margin-bottom: 100px;
+    display: block;
+    align-content: center;
+}
+
+.input_text {
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.05);
+    margin: 0;
+    width: 200px;
+    border-radius: 10px
+}
+
+.input_text.long_input {
+    width: 600px;
+}
+
+.input_text.center {
+    border-radius: 0;
+}
+
+.left_input {
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+}
+
+/*.input_text:not(:last-child) {*/
+/*    border-right: none;*/
+/*}*/
+
+.button_right {
+    border-radius: 0 10px 10px 0;
+    font-size: 14px;
+}
+
+.fa-brands {
+    color: #fff;
+    font-size: 35px;
+    margin: 15px;
+}
+
+
+.basket {
+    width: 90%;
+    align-content: center;
+    margin: 30px 50px;
+    font-family: "Nunito Light", sans-serif;
+    font-size: 18pt;
+}
+
+.basket .text {
+    font-size: 15pt;
+    color: #25859d;
+}
+
+tr {
+    border: 0 solid #c5d7f2;
+    border-top-width: 1px;
+}
+
+thead {
+    background-color: #c5d7f2;
+    border-top: 0;
+}
+
+td {
+    padding: 20px 10px;
+}
+
+.users_list {
+    font-family: Nunito, sans-serif;
+    font-size: 20pt;
+    color: #25859d;
+    padding: 15px;
+}
+
+.cancelled {
+    color: #4f5050;
+    font-size: 14pt;
+}
+
+.cancelled a {
+    color: #4f5050;
+    font-size: 20pt;
+}
+
+.a_list {
+    font-family: Nunito, sans-serif;
+    font-size: 14pt;
+    margin-left: 30px;
+    color: #33acca;
+}

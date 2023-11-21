@@ -1,0 +1,10 @@
+{% extends 'template_text.html' %}
+{% block simple_text %}
+    {% for user in users %}
+        <div class="users_list">{{ user.name }}, {{ user.email }}
+            <span><a class="a_list" href="{% url 'login_as' user.id %}">залогиниться за</a>
+            <a class="a_list" href="{% url 'delete_user' user.id %}">удалить</a></span></div>
+    {% empty %}
+        <h3>пользователей не найдено</h3>
+    {% endfor %}
+{% endblock %}

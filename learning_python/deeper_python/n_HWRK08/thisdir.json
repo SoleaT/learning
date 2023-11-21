@@ -1,0 +1,35 @@
+{
+  "I:\\work\\python\\learning\\deeper_python\\n_HWRK08": {
+    "directory size": 3329,
+    "subdirectories": [
+      "test1",
+      "test2"
+    ],
+    "files": {
+      "main.py": 1856,
+      "thisdir.csv": 0,
+      "thisdir.json": 0,
+      "thisdir.pickle": 0
+    }
+  },
+  "I:\\work\\python\\learning\\deeper_python\\n_HWRK08\\test1": {
+    "directory size": 1473,
+    "subdirectories": [
+      "test1_2"
+    ],
+    "files": {
+      "test1.txt": 1473,
+      "test2.txt": 0
+    }
+  },
+  "I:\\work\\python\\learning\\deeper_python\\n_HWRK08\\test1\\test1_2": {
+    "directory size": 0,
+    "subdirectories": [],
+    "files": {}
+  },
+  "I:\\work\\python\\learning\\deeper_python\\n_HWRK08\\test2": {
+    "directory size": 0,
+    "subdirectories": [],
+    "files": {}
+  }
+}

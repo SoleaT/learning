@@ -1,0 +1,65 @@
+{% extends 'myapp/../template_index.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="/static">Главная</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+{#    {% with messages = get_flashed_messages(with_categories=true) %}#}
+{#        {% if messages %}#}
+{#            {% for category, message in messages %}#}
+{#                <div class="alert alert-{{ category }}">#}
+{#                    {{ message }}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{#    {% endwith %}#}
+    {% if not user %}
+{#        <div class="content form_style">#}
+{##}
+{#            <div class="form_container">#}
+{#                <h3>Авторизация пользователя</h3>#}
+{#            </div>#}
+{#            <div class="form_container">#}
+{#                <form id="register" method="post" action="{{ url_for('login') }}">#}
+{#                    {{ form.csrf_token }}#}
+{#                    {{ form.username(class='input_text left_input',placeholder='Имя') }}#}
+{#                    {{ form.password(class='input_text center',placeholder='Пароль') }}#}
+{#                    {{ form.submit(class='button button_right') }}#}
+{#                </form>#}
+{#            </div>#}
+{#            <div class="form_container">#}
+{#                <a href="{{ url_for('regform') }}">Не зарегистрированы? Пройдите сюда</a>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+    {% else %}
+        <div class="content">
+            <h3>Привет, {{ name }}!</h3>
+        </div>
+        <div class="content one_item item_flex">
+            <div class="one_item_text">
+                <p><b>Твои данные:</b></p>
+                <p>Имя: {{ name }}</p>
+                <p>E-mail: {{ email }}</p>
+                <p>Пол: {{ gender }}</p>
+            </div>
+            <div class="one_item_text">
+                <p><b>Ты можешь:</b></p>
+                <p>Добавить категории товаров в магазин: {{ name }}</p>
+                <p>Добавить товары в магазин: {{ name }}</p>
+                <p><a href="{{ url_for('list_categories') }}">Посмотреть категории товаров</a> </p>
+                <p><a href="{{ url_for('homework1') }}">Посмотреть магазин</a> </p>
+            </div>
+
+        </div>
+        <div class="form_container">
+            <form action="{{ url_for('logout') }}">
+                <button class="button">Выйти</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

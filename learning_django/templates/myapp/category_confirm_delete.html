@@ -1,0 +1,14 @@
+{% extends 'template_text.html' %}
+{% block simple_text %}
+    {% if form %}
+          <h3>Удалить категорию</h3>
+
+  <p>Вы уверены, что хотите удалить категорию: {{ category.cat_name }}?</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input  class="button" type="submit" value="Ага очень" />
+  </form>
+    {% endif %}
+{#{% include 'myapp/cate_list.html' %}#}
+{% endblock %}

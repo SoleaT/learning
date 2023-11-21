@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="content item_flex">
+        <div class="toptext">
+            <h1>Учебная<br>работа</h1>
+            <h2>Просто ящерка, почему бы и да</h2>
+        </div>
+        <div class="top_pic"><img src="{% static 'images/v1_03.jpg' %}" alt=""></div>
+    </div>
+    <div class="content item_flex">
+        {% for item in homeworks %}
+        <div class="item">
+            <button type="submit" class="button b_small">{{ item.name }}</button>
+            <a href="{{ item.link }}"><img src="{% static item.img_url %}" alt="alt"></a></div>
+        {% endfor %}
+    </div>
+{% endblock %}

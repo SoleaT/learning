@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="/static">Главная</a> / <a class="pathlink" href="/homework2">Главная дз№2</a> / <a
+                class="pathlink" href="/seminar2">Семинар №2</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="content form_style">
+        <div class="form_container">
+            <h3>{{ form_title }}</h3>
+        </div>
+        <div class="form_container">
+            <form id="register" method="post" class="form_v" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <input type="submit" class="button">
+            </form>
+        </div>
+    </div>
+{% endblock %}

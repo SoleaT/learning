@@ -1,0 +1,5 @@
+"directory name";"directory size";"subdirectories";"files"
+"I:\work\python\learning\deeper_python\n_HWRK08";3329;"['test1', 'test2']";"{'main.py': 1856, 'thisdir.csv': 0, 'thisdir.json': 0, 'thisdir.pickle': 0}"
+"I:\work\python\learning\deeper_python\n_HWRK08\test1";1473;"['test1_2']";"{'test1.txt': 1473, 'test2.txt': 0}"
+"I:\work\python\learning\deeper_python\n_HWRK08\test1\test1_2";0;"[]";"{}"
+"I:\work\python\learning\deeper_python\n_HWRK08\test2";0;"[]";"{}"

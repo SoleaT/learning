@@ -1,0 +1,10 @@
+{% extends 'template_text.html' %}
+
+{% block simple_text %}
+    <p><a href="{{ link_all_authors }}">Посмотреть всех авторов в базе</a></p>
+    <p><a href="{{ link_all_articles }}">Посмотреть всех статьи в базе</a></p>
+    <p><a href="{{ link_create_author }}">Создать автора</a></p>
+    <p><a href="{{ link_create_author_r }}">Создать авторoв автоматом</a></p>
+    <p><a href="{{ link_create_article }}">Создать статью</a></p>
+    <p><a href="{{ link_create_articles_r }}">Создать набор случайных статей</a></p>
+{% endblock %}

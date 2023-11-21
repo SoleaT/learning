@@ -1,0 +1,26 @@
+{% extends 'template_text.html' %}
+{% block simple_text %}
+    {% for order in orders %}
+        <div class="users_list{% if order.status == 'CN' %} cancelled{% endif %}"><a
+                href="{% url 'view_order' order.id %}">Заказ за {{ order.creating_date }}</a>
+            {% if not order.status == 'CN' %}
+                <span><a class="a_list" href="{% url 'cancel_order' order.id %}">
+                Отменить заказ
+            </a></span>
+            {% else %}
+                <span class="cancelled" style="margin-left: 30px;">Отменён</span>
+            {% endif %}
+        </div>
+    {% empty %}
+        <h3>Заказов не найдено</h3>
+    {% endfor %}
+    <div class="content item_flex">
+        <div class="users_list" style="margin-left: -30px"><a class="a_list" href="{% url 'week_list' %}">Посмотреть
+            все
+            товары за последние 7 дней</a></div>
+        <div class="users_list" style="margin-left: -30px"><a class="a_list" href="{% url 'month_list' %}">Посмотреть
+            все
+            товары за месяц</a></div>
+        <div class="users_list"><a class="a_list" href="{% url 'year_list' %}">Посмотреть все товары за год</a></div>
+    </div>
+{% endblock %}

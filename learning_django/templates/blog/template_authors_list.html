@@ -1,0 +1,10 @@
+{% extends 'myapp/../template_text.html' %}
+{% block simple_text %}
+    {% for a in authors %}
+        <div class="users_list">{{ a.name }} {{ a.lastname }}, {{ a.email }}
+        <span><a href="list_articles/{{ a.id }}">смотреть статьи</a> <a
+                href="/delete_author/{{ a.id }}">удалить</a></span></div>
+    {% empty %}
+        <h3>пользователей не найдено</h3>
+    {% endfor %}
+{% endblock %}

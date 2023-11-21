@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="/static">Главная</a> / <a class="pathlink" href="/homework2">Главная дз№2</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="one_item_text">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <h3>{{ title }}</h3>
+        {% if products %}
+            <table class="basket">
+
+                <thead>
+                <tr>
+                    <td>Название</td>
+                    <td>Цена</td>
+                    <td colspan="2">Количество</td>
+                </tr>
+                </thead>
+
+                {% for item in products %}
+                    <tr class="basket text">
+                        <td>{{ item.p_name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ item.orderdetail__quantity }}</td>
+                        <td><a href="{% url 'delete_product' item.id order %}"><i
+                                class="fa-solid fa-trash-can"></i></a></td>
+                    </tr>
+                {% empty %}
+                    <h3>Пустотааааа</h3>
+                {% endfor %}
+                <tr>
+                    <td>Итого:</td>
+                    {#                    <td colspan="3" style="text-align: right">{{ summ.price__sum }}</td>#}
+                    <td colspan="3" style="text-align: right">{{ summ }}</td>
+                </tr>
+            </table>
+            <form style="margin-bottom: 30px">
+                {% csrf_token %}
+                <button style="margin-right: 30px" class="button" formaction="{% url 'confirm_order' order %}"
+                        formmethod="post">Оформить
+                </button>
+                <button style="margin-right: 30px" class="button" formaction="{% url 'clear_order' order %}"
+                        formmethod="post">Очистить корзину
+                </button>
+                <button class="button" formaction="{% url 'all_orders' %}" formmethod="post">Просмотреть заказы
+                    пользователя
+                </button>
+            </form>
+        {% else %}
+            <h3>Пустотааааа</h3>
+        {% endif %}
+    </div>
+{% endblock %}

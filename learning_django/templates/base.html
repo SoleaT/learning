@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <script src="https://kit.fontawesome.com/4c0a787120.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+</head>
+<body>
+<div class="header">
+    <img src="{% static 'images/leaves.jpg' %}" alt="">
+</div>
+<div class="container">
+{% block nav %}
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+</div>
+<div class="footer">
+{% block footer %}
+    <div class="footer_text">
+    @Copyright Ящерка
+    <a href="https://t.me/soleatoys"><i class="fa fa-brands fa-telegram"></i></a>
+    </div>
+{% endblock footer %}
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="/static">Главная</a> / <a class="pathlink" href="/homework2">Главная дз№2</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="one_item_text">
+        <h3>{{ title }}
+        </h3>
+        {% if products %}
+            <table class="basket">
+                <thead>
+                <tr>
+                    <td>Название</td>
+                    <td>Цена</td>
+                </tr>
+                </thead>
+                {% for item in products %}
+                    <tr class="basket text">
+                        <td>{{ item.p_name }}</td>
+                        <td>{{ item.price }}</td>
+                    </tr>
+                {% empty %}
+                    <h3>Пустотааааа</h3>
+                {% endfor %}
+            </table>
+    <div class="users_list" style="margin-left: -30px"><a class="a_list" href="{% url 'all_orders' %}">Вернуться к списку</a></div>
+        {% else %}
+            <h3>Пустотааааа</h3>
+        {% endif %}
+    </div>
+{% endblock %}

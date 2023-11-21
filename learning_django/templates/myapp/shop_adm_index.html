@@ -1,0 +1,7 @@
+{% extends 'template_text.html' %}
+
+{% block simple_text %}
+    {% for l in links %}
+    <p><a href="{{ l.link }}">{{ l.title }}</a></p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="{% url 'index' %}">Главная</a> / <a class="pathlink"
+                                                                          href="{% url 'shop_index' %}">Главная дз№2</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="content">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="content">
+            <h3>{{ cat_title }}</h3>
+        </div>
+    </div>
+    <div class="content item_flex">
+        {% for item in products %}
+            <div class="item">
+                <a href="{% url 'product_view' item.id %}">
+                    <img src="{{ item.image_link.url }}" alt="{{ item.p_name }}">
+                    <p class="category_link">{{ item.p_name }}</p>
+                    <p class="price-small">Цена: {{ item.price }}</p>
+                    <p>{{ item.description }}</p>
+                </a>
+                <form method="post" action="{% url 'into_basket' item.id %}">
+                    {% csrf_token %}
+                    <button class="button" type="submit">В корзинку</button>
+
+                </form>
+            </div>
+
+        {% empty %}
+            <h3>ничего не найдено</h3>
+        {% endfor %}
+    </div>
+    {% if links %}
+        <div class="item_flex">
+            {% for link in links %}
+                <a href="{{ link.a }}">{{ link.title }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

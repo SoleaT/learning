@@ -1,0 +1,24 @@
+{% extends 'myapp/../template_index.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="{% url 'index' %}">Главная</a> / <a class="pathlink" href="/homework2">Главная дз№2</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="content one_item">
+        <div style="width: 40%"><img src="{{ product.image_link.url }}" alt="{{ product.p_name }}"></div>
+        <div class="one_item_text">
+            <h3>{{ product.p_name }}</h3>
+            <p class="price">{{ product.price }}</p>
+            <p>{{ product.p_description }}</p>
+        <div class="item_flex">
+            <form action="{% url 'into_basket' product.pk %}"><input type="submit" class="button" value="Купить"></form>
+            {% if admin_mode %}
+            <form action="{% url 'update_product' product.pk %}"><input type="submit" class="button" value="Редактировать"></form>
+                </div>
+    {% endif %}
+        </div>
+    </div>
+{% endblock %}

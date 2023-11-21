@@ -1,0 +1,41 @@
+
+version: '3'
+
+volumes:
+    pgdata:
+        driver: local
+services:
+    nginx:
+# при падении будет стараться подняться
+        restart: always
+# только свежий nginx
+        image: nginx:latest
+# слушает порт 8080
+        expose:
+          - 8080
+        ports:
+          - "80:8080"
+        volumes:
+            - ./homework/static:/srv/www/homework/static
+            - ./homework/media:/srv/www/homework/media
+            - ./homework/logs:/srv/www/homework/logs
+            - ./docker/nginx:/etc/nginx/conf.d
+# и nginx зависит от контейнера python. Т.е. python должен быть запущен первым
+        depends_on:
+            - python
+    python:
+        restart: always
+# указываем откуда собирать образ
+        build:
+            context: .
+            dockerfile: docker/python/Dockerfile
+# монтируем директорию проекта
+        volumes:
+            - ./homework:/srv/www/homework
+        expose:
+          - 8000
+        ports:
+            - 8000:8000
+# запускаем gunicorn
+        command: "python3 manage.py runserver"
+

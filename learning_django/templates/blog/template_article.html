@@ -1,0 +1,19 @@
+{% extends 'myapp/../template_index.html' %}
+{% block nav %}
+    <div class="content">
+        <div>
+            <a class="pathlink" href="/">Главная</a> / <a class="pathlink" href="/homework2">Главная дз№2</a>  / <a class="pathlink" href="/seminar2">Семинар №2</a>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <h3>{{ title }}</h3>
+    </div>
+    <div class="one_item_text" style="margin-bottom: 100px; font-size: 16pt;">
+        {% block simple_text %}
+            {{ text }}
+        {% endblock %}
+    </div>
+
+{% endblock content %}
