@@ -22,9 +22,11 @@ class UserRepository:
         self.users.append(user)
 
     def logout_users(self):
+        temp=[]
         for u in self.users:
-            if not u.is_admin:
-                self.users.remove(u)
+            if u.is_admin:
+                temp.append(u)
+        self.users=temp
 
     def __str__(self):
         return ''.join(map(str, self.users))
