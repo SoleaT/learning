@@ -1,0 +1,14 @@
+
+============================= test session starts =============================
+collecting ... collected 8 items
+
+test_average.py::test_find_average_type_error PASSED                     [ 12%]
+test_average.py::test_find_average_empty_error PASSED                    [ 25%]
+test_average.py::test_find_average_size_error PASSED                     [ 37%]
+test_average.py::test_find_average_checker_integration PASSED            [ 50%]
+test_average.py::test_find_average_end_to_end PASSED                     [ 62%]
+test_average.py::test_is_prime[10-5-\u041f\u0435\u0440\u0432\u043e\u0435 \u0441\u0440\u0435\u0434\u043d\u0435\u0435 \u0431\u043e\u043b\u044c\u0448\u0435, \u0447\u0435\u043c \u0432\u0442\u043e\u0440\u043e\u0435] PASSED [ 75%]
+test_average.py::test_is_prime[5-10-\u041f\u0435\u0440\u0432\u043e\u0435 \u0441\u0440\u0435\u0434\u043d\u0435\u0435 \u043c\u0435\u043d\u044c\u0448\u0435, \u0447\u0435\u043c \u0432\u0442\u043e\u0440\u043e\u0435] PASSED [ 87%]
+test_average.py::test_is_prime[10-10-\u0421\u0440\u0435\u0434\u043d\u0438\u0435 \u0430\u0440\u0438\u0444\u043c\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u0440\u0430\u0432\u043d\u044b] PASSED [100%]
+
+============================== 8 passed in 0.03s ==============================
